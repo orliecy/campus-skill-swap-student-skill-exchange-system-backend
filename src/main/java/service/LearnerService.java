@@ -35,6 +35,10 @@ public class LearnerService {
         return learnerRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
     }
 
+    public List<Learner> getLearnersByMentorId(UUID mentorId) {
+        return learnerRepository.findLearnersByMentorId(mentorId);
+    }
+
     public Optional<Learner> updateLearner(UUID id, Learner learner) {
         Optional<Learner> existingLearner = learnerRepository.findById(id);
 

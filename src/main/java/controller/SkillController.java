@@ -40,6 +40,11 @@ public class SkillController {
         return ResponseEntity.ok(skillService.getAllSkills());
     }
 
+    @GetMapping("/unused")
+    public ResponseEntity<List<Skill>> getUnusedSkills() {
+        return ResponseEntity.ok(skillService.getUnusedSkills());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getSkillById(@PathVariable UUID id) {
         Optional<Skill> skill = skillService.getSkillById(id);

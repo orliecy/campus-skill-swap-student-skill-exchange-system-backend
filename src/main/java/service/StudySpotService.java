@@ -27,6 +27,10 @@ public class StudySpotService {
         return studySpotRepository.findAll();
     }
 
+    public List<StudySpot> getFreeStudySpots() {
+        return studySpotRepository.findFreeStudySpots();
+    }
+
     public Optional<StudySpot> getStudySpotById(UUID id) {
         return studySpotRepository.findById(id);
     }

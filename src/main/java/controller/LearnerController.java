@@ -19,15 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.campusskillswap.domain.Learner;
 import com.campusskillswap.service.LearnerService;
+import com.campusskillswap.service.MentorService;
 
 @RestController
 @RequestMapping("/api/learners")
 public class LearnerController {
 
     private final LearnerService learnerService;
+    private final MentorService mentorService;
 
-    public LearnerController(LearnerService learnerService) {
+    public LearnerController(LearnerService learnerService, MentorService mentorService) {
         this.learnerService = learnerService;
+        this.mentorService = mentorService;
     }
 
     @PostMapping("/save")
@@ -44,6 +47,16 @@ public class LearnerController {
     @GetMapping("/by-last-name")
     public ResponseEntity<List<Learner>> getLearnersByLastName(@RequestParam String lastName) {
         return ResponseEntity.ok(learnerService.getLearnersByLastName(lastName));
+    }
+
+    @GetMapping("/of-mentor/{mentorId}")
+    public ResponseEntity<?> getLearnersByMentorId(@PathVariable UUID mentorId) {
+        if (mentorService.getMentorById(mentorId).isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("The mentor with that id does not exist");
+        }
+
+        return ResponseEntity.ok(learnerService.getLearnersByMentorId(mentorId));
     }
 
     @GetMapping("/{id}")

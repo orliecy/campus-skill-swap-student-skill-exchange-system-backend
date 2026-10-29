@@ -40,6 +40,11 @@ public class StudySpotController {
         return ResponseEntity.ok(studySpotService.getAllStudySpots());
     }
 
+    @GetMapping("/free")
+    public ResponseEntity<List<StudySpot>> getFreeStudySpots() {
+        return ResponseEntity.ok(studySpotService.getFreeStudySpots());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getStudySpotById(@PathVariable UUID id) {
         Optional<StudySpot> studySpot = studySpotService.getStudySpotById(id);

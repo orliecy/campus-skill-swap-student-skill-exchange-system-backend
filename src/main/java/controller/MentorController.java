@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campusskillswap.domain.Mentor;
@@ -38,6 +39,11 @@ public class MentorController {
     @GetMapping("/all")
     public ResponseEntity<List<Mentor>> getAllMentors() {
         return ResponseEntity.ok(mentorService.getAllMentors());
+    }
+
+    @GetMapping("/by-skill")
+    public ResponseEntity<List<Mentor>> getMentorsBySkillName(@RequestParam String name) {
+        return ResponseEntity.ok(mentorService.getMentorsBySkillName(name));
     }
 
     @GetMapping("/{id}")

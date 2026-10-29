@@ -52,6 +52,10 @@ public class MentorService {
         return mentorRepository.findAll();
     }
 
+    public List<Mentor> getMentorsBySkillName(String name) {
+        return mentorRepository.findMentorsBySkillName(name);
+    }
+
     public Optional<Mentor> getMentorById(UUID id) {
         return mentorRepository.findById(id);
     }
