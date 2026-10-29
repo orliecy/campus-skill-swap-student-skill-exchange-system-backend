@@ -1,6 +1,7 @@
 
 package com.campusskillswap.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -8,6 +9,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.campusskillswap.domain.ExchangeRequest;
+import com.campusskillswap.domain.ExchangeStatus;
 import com.campusskillswap.domain.Learner;
 import com.campusskillswap.domain.Mentor;
 import com.campusskillswap.repository.ExchangeRequestRepository;
@@ -47,6 +49,14 @@ public class ExchangeRequestService {
 
     public List<ExchangeRequest> getAllExchangeRequests() {
         return exchangeRequestRepository.findAll();
+    }
+
+    public List<ExchangeRequest> getExchangeRequestsByStatus(ExchangeStatus status) {
+        return exchangeRequestRepository.findByStatusOrderBySessionDateAsc(status);
+    }
+
+    public List<ExchangeRequest> getExchangeRequestsBetweenDates(LocalDate start, LocalDate end) {
+        return exchangeRequestRepository.findBySessionDateBetweenOrderBySessionDateAsc(start, end);
     }
 
     public Optional<ExchangeRequest> getExchangeRequestById(UUID id) {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campusskillswap.domain.Learner;
@@ -38,6 +39,11 @@ public class LearnerController {
     @GetMapping("/all")
     public ResponseEntity<List<Learner>> getAllLearners() {
         return ResponseEntity.ok(learnerService.getAllLearners());
+    }
+
+    @GetMapping("/by-last-name")
+    public ResponseEntity<List<Learner>> getLearnersByLastName(@RequestParam String lastName) {
+        return ResponseEntity.ok(learnerService.getLearnersByLastName(lastName));
     }
 
     @GetMapping("/{id}")

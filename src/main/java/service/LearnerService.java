@@ -31,6 +31,10 @@ public class LearnerService {
         return learnerRepository.findById(id);
     }
 
+    public List<Learner> getLearnersByLastName(String lastName) {
+        return learnerRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+
     public Optional<Learner> updateLearner(UUID id, Learner learner) {
         Optional<Learner> existingLearner = learnerRepository.findById(id);
 

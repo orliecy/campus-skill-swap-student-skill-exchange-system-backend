@@ -1,6 +1,7 @@
 
 package com.campusskillswap.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campusskillswap.domain.ExchangeRequest;
+import com.campusskillswap.domain.ExchangeStatus;
 import com.campusskillswap.service.ExchangeRequestService;
 
 @RestController
@@ -39,6 +42,19 @@ public class ExchangeRequestController {
     @GetMapping("/all")
     public ResponseEntity<List<ExchangeRequest>> getAllExchangeRequests() {
         return ResponseEntity.ok(exchangeRequestService.getAllExchangeRequests());
+    }
+
+    @GetMapping("/by-status")
+    public ResponseEntity<List<ExchangeRequest>> getExchangeRequestsByStatus(
+            @RequestParam ExchangeStatus status) {
+        return ResponseEntity.ok(exchangeRequestService.getExchangeRequestsByStatus(status));
+    }
+
+    @GetMapping("/between")
+    public ResponseEntity<List<ExchangeRequest>> getExchangeRequestsBetweenDates(
+            @RequestParam LocalDate start,
+            @RequestParam LocalDate end) {
+        return ResponseEntity.ok(exchangeRequestService.getExchangeRequestsBetweenDates(start, end));
     }
 
     @GetMapping("/{id}")
