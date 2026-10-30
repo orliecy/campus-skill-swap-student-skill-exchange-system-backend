@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,9 +35,14 @@ public class ExchangeRequestController {
 
     @PostMapping("/save")
     public ResponseEntity<String> saveExchangeRequest(@RequestBody ExchangeRequest exchangeRequest) {
-        exchangeRequestService.saveExchangeRequest(exchangeRequest);
-
-        return new ResponseEntity<>("Exchange request saved successfully", HttpStatus.CREATED);
+        try {
+            exchangeRequestService.saveExchangeRequest(exchangeRequest);
+            return new ResponseEntity<>("Exchange request saved successfully", HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
     }
 
     @GetMapping("/all")
@@ -55,6 +61,24 @@ public class ExchangeRequestController {
             @RequestParam LocalDate start,
             @RequestParam LocalDate end) {
         return ResponseEntity.ok(exchangeRequestService.getExchangeRequestsBetweenDates(start, end));
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateExchangeRequestStatus(
+            @PathVariable UUID id,
+            @RequestParam ExchangeStatus status) {
+
+        String result = exchangeRequestService.updateExchangeRequestStatus(id, status);
+
+        if (result.equals("The exchange request with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        if (result.startsWith("Cannot change status from")) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+        }
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{id}")

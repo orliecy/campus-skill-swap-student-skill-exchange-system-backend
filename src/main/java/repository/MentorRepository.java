@@ -9,10 +9,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.campusskillswap.domain.Mentor;
+import com.campusskillswap.domain.StudySpot;
 
 public interface MentorRepository extends JpaRepository<Mentor, UUID> {
 
     @Query("SELECT DISTINCT m FROM Mentor m JOIN m.skills s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<Mentor> findMentorsBySkillName(@Param("name") String name);
+
+    boolean existsByStudySpot(StudySpot studySpot);
 
 }

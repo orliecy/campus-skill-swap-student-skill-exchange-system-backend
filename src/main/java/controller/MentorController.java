@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -44,6 +45,50 @@ public class MentorController {
     @GetMapping("/by-skill")
     public ResponseEntity<List<Mentor>> getMentorsBySkillName(@RequestParam String name) {
         return ResponseEntity.ok(mentorService.getMentorsBySkillName(name));
+    }
+
+    @PutMapping("/{mentorId}/skills/{skillId}")
+    public ResponseEntity<String> addSkillToMentor(
+            @PathVariable UUID mentorId,
+            @PathVariable UUID skillId) {
+
+        String result = mentorService.addSkillToMentor(mentorId, skillId);
+
+        if (result.equals("The mentor with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        if (result.equals("That skill does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        if (result.equals("The mentor already has that skill")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+        }
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PatchMapping("/{mentorId}/study-spot")
+    public ResponseEntity<String> changeMentorStudySpot(
+            @PathVariable UUID mentorId,
+            @RequestParam int spotNumber) {
+
+        String result = mentorService.changeMentorStudySpot(mentorId, spotNumber);
+
+        if (result.equals("The mentor with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        if (result.equals("The study spot with that spotNumber does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+        }
+
+        if (result.equals("That study spot is taken by another mentor")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+        }
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{id}")

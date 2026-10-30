@@ -17,4 +17,7 @@ public interface ExchangeRequestRepository extends JpaRepository<ExchangeRequest
     List<ExchangeRequest> findBySessionDateBetweenOrderBySessionDateAsc(
             LocalDate start, LocalDate end);
 
+    boolean existsByMentorIdAndSessionDateAndStatusNot(
+            UUID mentorId, LocalDate sessionDate, ExchangeStatus status);
+
 }

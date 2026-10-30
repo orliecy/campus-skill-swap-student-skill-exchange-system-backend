@@ -60,6 +60,65 @@ public class MentorService {
         return mentorRepository.findById(id);
     }
 
+    public String addSkillToMentor(UUID mentorId, UUID skillId) {
+
+        Optional<Mentor> existingMentor = mentorRepository.findById(mentorId);
+
+        if (existingMentor.isEmpty()) {
+            return "The mentor with that id does not exist";
+        }
+
+        Optional<Skill> existingSkill = skillRepository.findById(skillId);
+
+        if (existingSkill.isEmpty()) {
+            return "That skill does not exist";
+        }
+
+        Mentor mentor = existingMentor.get();
+        Skill skill = existingSkill.get();
+
+        for (Skill currentSkill : mentor.getSkills()) {
+            if (currentSkill.getId().equals(skillId)) {
+                return "The mentor already has that skill";
+            }
+        }
+
+        mentor.getSkills().add(skill);
+        mentorRepository.save(mentor);
+
+        return "Skill added to the mentor";
+    }
+
+    public String changeMentorStudySpot(UUID mentorId, int spotNumber) {
+
+        Optional<Mentor> existingMentor = mentorRepository.findById(mentorId);
+
+        if (existingMentor.isEmpty()) {
+            return "The mentor with that id does not exist";
+        }
+
+        Optional<StudySpot> existingSpot = studySpotRepository.findBySpotNumber(spotNumber);
+
+        if (existingSpot.isEmpty()) {
+            return "The study spot with that spotNumber does not exist";
+        }
+
+        Mentor mentor = existingMentor.get();
+        StudySpot studySpot = existingSpot.get();
+
+        if (mentorRepository.existsByStudySpot(studySpot)) {
+            if (mentor.getStudySpot() == null ||
+                    !mentor.getStudySpot().getId().equals(studySpot.getId())) {
+                return "That study spot is taken by another mentor";
+            }
+        }
+
+        mentor.setStudySpot(studySpot);
+        mentorRepository.save(mentor);
+
+        return "Study spot changed successfully";
+    }
+
     public Optional<Mentor> updateMentor(UUID id, Mentor mentor) {
         Optional<Mentor> existingMentor = mentorRepository.findById(id);
 

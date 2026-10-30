@@ -32,6 +32,12 @@ public class ExchangeRequestService {
     }
 
     public ExchangeRequest saveExchangeRequest(ExchangeRequest exchangeRequest) {
+
+        if (exchangeRequest.getSessionDate() == null ||
+                exchangeRequest.getSessionDate().isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Exchange request date cannot be in the past");
+        }
+
         if (exchangeRequest.getLearner() != null) {
             Learner learner = learnerRepository.findById(
                     exchangeRequest.getLearner().getId()).orElseThrow();
@@ -42,7 +48,19 @@ public class ExchangeRequestService {
             Mentor mentor = mentorRepository.findById(
                     exchangeRequest.getMentor().getId()).orElseThrow();
             exchangeRequest.setMentor(mentor);
+
+            boolean alreadyBooked =
+                    exchangeRequestRepository.existsByMentorIdAndSessionDateAndStatusNot(
+                            mentor.getId(),
+                            exchangeRequest.getSessionDate(),
+                            ExchangeStatus.REJECTED);
+
+            if (alreadyBooked) {
+                throw new IllegalStateException("Mentor already has an exchange on that date");
+            }
         }
+
+        exchangeRequest.setStatus(ExchangeStatus.REQUESTED);
 
         return exchangeRequestRepository.save(exchangeRequest);
     }
@@ -63,6 +81,37 @@ public class ExchangeRequestService {
         return exchangeRequestRepository.findById(id);
     }
 
+    public String updateExchangeRequestStatus(UUID id, ExchangeStatus newStatus) {
+
+        Optional<ExchangeRequest> existingRequest = exchangeRequestRepository.findById(id);
+
+        if (existingRequest.isEmpty()) {
+            return "The exchange request with that id does not exist";
+        }
+
+        ExchangeRequest exchangeRequest = existingRequest.get();
+        ExchangeStatus currentStatus = exchangeRequest.getStatus();
+
+        boolean allowed = false;
+
+        if (currentStatus == ExchangeStatus.REQUESTED) {
+            allowed = newStatus == ExchangeStatus.ACCEPTED ||
+                      newStatus == ExchangeStatus.REJECTED;
+        } else if (currentStatus == ExchangeStatus.ACCEPTED) {
+            allowed = newStatus == ExchangeStatus.DONE ||
+                      newStatus == ExchangeStatus.REJECTED;
+        }
+
+        if (!allowed) {
+            return "Cannot change status from " + currentStatus + " to " + newStatus;
+        }
+
+        exchangeRequest.setStatus(newStatus);
+        exchangeRequestRepository.save(exchangeRequest);
+
+        return "Exchange request status updated successfully";
+    }
+
     public Optional<ExchangeRequest> updateExchangeRequest(UUID id, ExchangeRequest exchangeRequest) {
         Optional<ExchangeRequest> existingRequest = exchangeRequestRepository.findById(id);
 
@@ -70,7 +119,6 @@ public class ExchangeRequestService {
             ExchangeRequest updatedRequest = existingRequest.get();
 
             updatedRequest.setSessionDate(exchangeRequest.getSessionDate());
-            updatedRequest.setStatus(exchangeRequest.getStatus());
             updatedRequest.setSkillWanted(exchangeRequest.getSkillWanted());
             updatedRequest.setSkillOffered(exchangeRequest.getSkillOffered());
 
