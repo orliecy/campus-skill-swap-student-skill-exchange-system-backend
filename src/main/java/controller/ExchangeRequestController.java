@@ -109,13 +109,17 @@ public class ExchangeRequestController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteExchangeRequest(@PathVariable UUID id) {
-        boolean deleted = exchangeRequestService.deleteExchangeRequest(id);
 
-        if (deleted) {
-            return ResponseEntity.ok("Exchange request deleted successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("The exchange request with that id does not exist");
+        String result = exchangeRequestService.deleteExchangeRequest(id);
+
+        if (result.equals("The exchange request with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
         }
+
+        if (result.equals("That exchange request has exchange reviews, delete them first")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+        }
+
+        return ResponseEntity.ok(result);
     }
 }

@@ -13,6 +13,7 @@ import com.campusskillswap.domain.ExchangeStatus;
 import com.campusskillswap.domain.Learner;
 import com.campusskillswap.domain.Mentor;
 import com.campusskillswap.repository.ExchangeRequestRepository;
+import com.campusskillswap.repository.ExchangeReviewRepository;
 import com.campusskillswap.repository.LearnerRepository;
 import com.campusskillswap.repository.MentorRepository;
 
@@ -22,13 +23,16 @@ public class ExchangeRequestService {
     private final ExchangeRequestRepository exchangeRequestRepository;
     private final LearnerRepository learnerRepository;
     private final MentorRepository mentorRepository;
+    private final ExchangeReviewRepository exchangeReviewRepository;
 
     public ExchangeRequestService(ExchangeRequestRepository exchangeRequestRepository,
                                   LearnerRepository learnerRepository,
-                                  MentorRepository mentorRepository) {
+                                  MentorRepository mentorRepository,
+                                  ExchangeReviewRepository exchangeReviewRepository) {
         this.exchangeRequestRepository = exchangeRequestRepository;
         this.learnerRepository = learnerRepository;
         this.mentorRepository = mentorRepository;
+        this.exchangeReviewRepository = exchangeReviewRepository;
     }
 
     public ExchangeRequest saveExchangeRequest(ExchangeRequest exchangeRequest) {
@@ -142,12 +146,18 @@ public class ExchangeRequestService {
         return Optional.empty();
     }
 
-    public boolean deleteExchangeRequest(UUID id) {
-        if (exchangeRequestRepository.existsById(id)) {
-            exchangeRequestRepository.deleteById(id);
-            return true;
+    public String deleteExchangeRequest(UUID id) {
+
+        if (!exchangeRequestRepository.existsById(id)) {
+            return "The exchange request with that id does not exist";
         }
 
-        return false;
+        if (exchangeReviewRepository.existsByExchangeRequestId(id)) {
+            return "That exchange request has exchange reviews, delete them first";
+        }
+
+        exchangeRequestRepository.deleteById(id);
+
+        return "Exchange request deleted successfully";
     }
 }
