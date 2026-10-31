@@ -85,6 +85,18 @@ public class ExchangeRequestService {
         return exchangeRequestRepository.findById(id);
     }
 
+    public List<Object[]> getExchangeRequestStatsByStatus() {
+        return exchangeRequestRepository.countExchangeRequestsByStatus();
+    }
+
+    public int cancelExchangeRequestsByMentorAndDate(UUID mentorId, LocalDate date) {
+        return exchangeRequestRepository.cancelExchangeRequestsByMentorAndDate(
+                mentorId,
+                date,
+                ExchangeStatus.REJECTED,
+                ExchangeStatus.DONE);
+    }
+
     public String updateExchangeRequestStatus(UUID id, ExchangeStatus newStatus) {
 
         Optional<ExchangeRequest> existingRequest = exchangeRequestRepository.findById(id);

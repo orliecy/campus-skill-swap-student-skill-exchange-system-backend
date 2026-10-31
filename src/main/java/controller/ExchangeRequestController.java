@@ -63,6 +63,21 @@ public class ExchangeRequestController {
         return ResponseEntity.ok(exchangeRequestService.getExchangeRequestsBetweenDates(start, end));
     }
 
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getExchangeRequestStatsByStatus() {
+        return ResponseEntity.ok(exchangeRequestService.getExchangeRequestStatsByStatus());
+    }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<String> cancelExchangeRequestsByMentorAndDate(
+            @RequestParam UUID mentorId,
+            @RequestParam LocalDate date) {
+
+        int count = exchangeRequestService.cancelExchangeRequestsByMentorAndDate(mentorId, date);
+
+        return ResponseEntity.ok(count + " exchange requests cancelled");
+    }
+
     @PatchMapping("/{id}/status")
     public ResponseEntity<String> updateExchangeRequestStatus(
             @PathVariable UUID id,
