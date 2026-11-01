@@ -1,0 +1,1970 @@
+{
+  "info": {
+    "_postman_id": "65eab1c0-b3fc-4329-b679-7f6705c13a6f",
+    "name": "Campus SkillSwap – Student Skill Exchange System – Midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56687722"
+  },
+  "item": [
+    {
+      "name": "Part A - CRUD Operations",
+      "item": [
+        {
+          "name": "Save Skill",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Public Speaking\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/skills/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/skills/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Skill by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/skills/9e1fbc60-3e34-4096-8c76-c3b6f7d493cb",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "9e1fbc60-3e34-4096-8c76-c3b6f7d493cb"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Skill",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n    \"name\": \"Advanced Java Programming\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/skills/update/c60a5f94-3d1d-43a9-b33c-2eb2ec79f353",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "update",
+                "c60a5f94-3d1d-43a9-b33c-2eb2ec79f353"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Skill",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/skills/delete/c60a5f94-3d1d-43a9-b33c-2eb2ec79f353",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "delete",
+                "c60a5f94-3d1d-43a9-b33c-2eb2ec79f353"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nonexistent Skill (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/skills/c60a5f94-3d1d-43a9-b33c-2eb2ec79f353",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "c60a5f94-3d1d-43a9-b33c-2eb2ec79f353"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Study Spot",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"spotNumber\": 4,\r\n  \"name\": \"Quiet Study Room\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Study Spots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Study Spot by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/2863a485-977e-4e1b-aed3-cfa8d84c37cf",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "2863a485-977e-4e1b-aed3-cfa8d84c37cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Study Spot",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Updated Main Library\",\r\n  \"spotNumber\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/update/2863a485-977e-4e1b-aed3-cfa8d84c37cf",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "update",
+                "2863a485-977e-4e1b-aed3-cfa8d84c37cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Study Spot",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/delete/2863a485-977e-4e1b-aed3-cfa8d84c37cf",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "delete",
+                "2863a485-977e-4e1b-aed3-cfa8d84c37cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nonexistent Study Spot",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/2863a485-977e-4e1b-aed3-cfa8d84c37cf",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "2863a485-977e-4e1b-aed3-cfa8d84c37cf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Mentor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Sarah\",\r\n  \"lastName\": \"Kalisa\",\r\n  \"bio\": \"Creative student mentor helping learners improve their graphic design skills.\",\r\n  \"studySpot\": {\r\n    \"id\": \"3603704f-8be1-4108-9a1b-286653aeb1d6\"\r\n  },\r\n  \"skills\": [\r\n    {\r\n      \"id\": \"a4294b41-0d43-4619-8167-3f63b1c6f59d\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Mentors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Mentor by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Mentor",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Alice\",\r\n  \"lastName\": \"Uwase\",\r\n  \"bio\": \"Experienced student mentor teaching Java programming and graphic design.\",\r\n  \"studySpot\": {\r\n    \"id\": \"070957fd-ceb4-4349-a11a-70e1b0b517ff\"\r\n  },\r\n  \"skills\": [\r\n    {\r\n      \"id\": \"9e1fbc60-3e34-4096-8c76-c3b6f7d493cb\"\r\n    },\r\n    {\r\n      \"id\": \"a4294b41-0d43-4619-8167-3f63b1c6f59d\"\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/update/7793c306-fa8c-4492-8ecf-0093ecd26c38",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "update",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nonexistent Mentor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Temporary Mentor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/delete/cc306b44-9eec-4df8-8cbb-bcd2888f2c7d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "delete",
+                "cc306b44-9eec-4df8-8cbb-bcd2888f2c7d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Deleted Mentor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/cc306b44-9eec-4df8-8cbb-bcd2888f2c7d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "cc306b44-9eec-4df8-8cbb-bcd2888f2c7d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Learner",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Eric\",\r\n  \"lastName\": \"Niyonzima\",\r\n  \"regNumber\": \"27806\",\r\n  \"email\": \"eric.niyonzima@example.com\",\r\n  \"faculty\": \"Software Engineering\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/learners/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Learners",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Learner by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/7e81adce-49a1-4feb-b2d7-c3f2248a7337",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "7e81adce-49a1-4feb-b2d7-c3f2248a7337"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Learner",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Ora\",\r\n  \"lastName\": \"Mazimpaka\",\r\n  \"regNumber\": \"27802\",\r\n  \"email\": \"ora.updated@example.com\",\r\n  \"faculty\": \"Information Technology and Software Engineering\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/learners/update/7e81adce-49a1-4feb-b2d7-c3f2248a7337",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "update",
+                "7e81adce-49a1-4feb-b2d7-c3f2248a7337"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nonexistent Learner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Temporary Learner",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/delete/038f4f4a-ec60-42cd-ad36-cc2e17909af1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "delete",
+                "038f4f4a-ec60-42cd-ad36-cc2e17909af1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Deleted Learner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/038f4f4a-ec60-42cd-ad36-cc2e17909af1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "038f4f4a-ec60-42cd-ad36-cc2e17909af1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save ExchangeRequest",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"sessionDate\": \"2026-11-12\",\r\n  \"status\": \"REQUESTED\",\r\n  \"skillWanted\": \"Photography\",\r\n  \"skillOffered\": \"Graphic Design\",\r\n  \"learner\": {\r\n    \"id\": \"8f3d3c95-f13d-42fe-a916-d843f4fc61e7\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"e36aa397-cd8c-4066-9c4e-9c7d790f1ca6\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All ExchangeRequests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get ExchangeRequest by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/f2f5e164-b68d-45fe-970b-60b35040abc3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "f2f5e164-b68d-45fe-970b-60b35040abc3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update ExchangeRequest",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"sessionDate\": \"2026-10-29\",\r\n  \"status\": \"REQUESTED\",\r\n  \"skillWanted\": \"Java Programming\",\r\n  \"skillOffered\": \"Photography\",\r\n  \"learner\": {\r\n    \"id\": \"7e81adce-49a1-4feb-b2d7-c3f2248a7337\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"7793c306-fa8c-4492-8ecf-0093ecd26c38\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/update/f2f5e164-b68d-45fe-970b-60b35040abc3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "update",
+                "f2f5e164-b68d-45fe-970b-60b35040abc3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nonexistent ExchangeRequest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Temporary ExchangeRequest",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/delete/5b0b9966-d698-4556-8a0c-b300b54e3472",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "delete",
+                "5b0b9966-d698-4556-8a0c-b300b54e3472"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Deleted ExchangeRequest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/5b0b9966-d698-4556-8a0c-b300b54e3472",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "5b0b9966-d698-4556-8a0c-b300b54e3472"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part B - Derived Queries",
+      "item": [
+        {
+          "name": "Find Learners by Last Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/by-last-name?lastName=mazimpaka",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "mazimpaka"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find ExchangeRequests by Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/by-status?status=REQUESTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REQUESTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find ExchangeRequests Between Dates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/between?start=2026-10-01&end=2026-10-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part C - JPQL Queries",
+      "item": [
+        {
+          "name": "Find Mentors by Skill Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/by-skill?name=java",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "by-skill"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "java"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find Free Study Spots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find Unused Skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/skills/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "skills",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Existing mentor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/of-mentor/7793c306-fa8c-4492-8ecf-0093ecd26c38",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "of-mentor",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mentor does not exist",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/learners/of-mentor/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "learners",
+                "of-mentor",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part D - Business Rules",
+      "item": [
+        {
+          "name": "Reject a past date",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"sessionDate\": \"2026-10-20\",\r\n  \"status\": \"REQUESTED\",\r\n  \"skillWanted\": \"Java Programming\",\r\n  \"skillOffered\": \"Photography\",\r\n  \"learner\": {\r\n    \"id\": \"7e81adce-49a1-4feb-b2d7-c3f2248a7337\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"7793c306-fa8c-4492-8ecf-0093ecd26c38\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prevent Mentor Double Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"sessionDate\": \"2026-11-02\",\r\n  \"status\": \"REQUESTED\",\r\n  \"skillWanted\": \"Photography\",\r\n  \"skillOffered\": \"Graphic Design\",\r\n  \"learner\": {\r\n    \"id\": \"aa033e62-c8b0-4ddd-bdab-15619007de89\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"e36aa397-cd8c-4066-9c4e-9c7d790f1ca6\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Automatically Set Status to REQUESTED",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"sessionDate\": \"2026-12-15\",\r\n  \"status\": \"DONE\",\r\n  \"skillWanted\": \"Graphic Design\",\r\n  \"skillOffered\": \"Photography\",\r\n  \"learner\": {\r\n    \"id\": \"aa033e62-c8b0-4ddd-bdab-15619007de89\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"7793c306-fa8c-4492-8ecf-0093ecd26c38\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify the Saved Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/by-status?status=REQUESTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REQUESTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "REQUESTED → ACCEPTED",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/2de7b669-bf73-409e-bc3c-c75b0fa7042a/status?status=ACCEPTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACCEPTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid transition: ACCEPTED → REQUESTED",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/2de7b669-bf73-409e-bc3c-c75b0fa7042a/status?status=REQUESTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REQUESTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Valid transition: ACCEPTED → DONE",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/2de7b669-bf73-409e-bc3c-c75b0fa7042a/status?status=DONE",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "DONE"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid transition: DONE → ACCEPTED",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/2de7b669-bf73-409e-bc3c-c75b0fa7042a/status?status=ACCEPTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACCEPTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Exchange Request Not Found",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/00000000-0000-0000-0000-000000000000/status?status=ACCEPTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "00000000-0000-0000-0000-000000000000",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACCEPTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify PUT Cannot Change Status",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"sessionDate\": \"2026-12-15\",\r\n  \"status\": \"REQUESTED\",\r\n  \"skillWanted\": \"Java Programming\",\r\n  \"skillOffered\": \"Graphic Design\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/update/2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "update",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add a new skill",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/skills/f464bd2e-a5f1-4432-8f84-ff1210d4574a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "skills",
+                "f464bd2e-a5f1-4432-8f84-ff1210d4574a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Duplicate Skill",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/skills/f464bd2e-a5f1-4432-8f84-ff1210d4574a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "skills",
+                "f464bd2e-a5f1-4432-8f84-ff1210d4574a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mentor Not Found",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/00000000-0000-0000-0000-000000000000/skills/f464bd2e-a5f1-4432-8f84-ff1210d4574a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "00000000-0000-0000-0000-000000000000",
+                "skills",
+                "f464bd2e-a5f1-4432-8f84-ff1210d4574a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Skill Not Found",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/skills/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "skills",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Existing Skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change to an available study spot",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/study-spot?spotNumber=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "study-spot"
+              ],
+              "query": [
+                {
+                  "key": "spotNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Study Spot Already Occupied",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/study-spot?spotNumber=2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "study-spot"
+              ],
+              "query": [
+                {
+                  "key": "spotNumber",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mentor Not Found",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/00000000-0000-0000-0000-000000000000/study-spot?spotNumber=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "00000000-0000-0000-0000-000000000000",
+                "study-spot"
+              ],
+              "query": [
+                {
+                  "key": "spotNumber",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Study Spot Not Found",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/mentors/7793c306-fa8c-4492-8ecf-0093ecd26c38/study-spot?spotNumber=99",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "mentors",
+                "7793c306-fa8c-4492-8ecf-0093ecd26c38",
+                "study-spot"
+              ],
+              "query": [
+                {
+                  "key": "spotNumber",
+                  "value": "99"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify the Old Study Spot Is Free",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/study-spots/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "study-spots",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part E - Exchange Reviews",
+      "item": [
+        {
+          "name": "Save a review for a DONE exchange",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"topic\": \"Java Programming\",\r\n  \"comment\": \"The mentor explained Java concepts clearly.\",\r\n  \"rating\": 5\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/save?exchangeRequestId=2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "exchangeRequestId",
+                  "value": "2de7b669-bf73-409e-bc3c-c75b0fa7042a"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Review an Exchange That Is Not DONE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"topic\": \"Graphic Design\",\r\n  \"comment\": \"Testing a review before the exchange is completed.\",\r\n  \"rating\": 4\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/save?exchangeRequestId=63b83f76-f417-4b86-ab8c-47b97048a4d9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "exchangeRequestId",
+                  "value": "63b83f76-f417-4b86-ab8c-47b97048a4d9"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Exchange Request Does Not Exist",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"topic\": \"Java Programming\",\r\n  \"comment\": \"Testing a review for a missing exchange request.\",\r\n  \"rating\": 5\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/save?exchangeRequestId=00000000-0000-0000-0000-000000000999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "exchangeRequestId",
+                  "value": "00000000-0000-0000-0000-000000000999"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Learner with an existing review",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/learner/27803",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "learner",
+                "27803"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Learner without reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/learner/99999",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "learner",
+                "99999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prevent deletion when reviews exist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/delete/2de7b669-bf73-409e-bc3c-c75b0fa7042a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "delete",
+                "2de7b669-bf73-409e-bc3c-c75b0fa7042a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete an Existing Review",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/delete/6ceb794c-e5d4-48ce-8ea8-baaea93e8181",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "delete",
+                "6ceb794c-e5d4-48ce-8ea8-baaea93e8181"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Nonexistent Review",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-reviews/delete/6ceb794c-e5d4-48ce-8ea8-baaea93e8181",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-reviews",
+                "delete",
+                "6ceb794c-e5d4-48ce-8ea8-baaea93e8181"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Test Exchange Request",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"sessionDate\": \"2026-12-20\",\r\n  \"skillWanted\": \"Public Speaking\",\r\n  \"skillOffered\": \"Photography\",\r\n  \"learner\": {\r\n    \"id\": \"7e81adce-49a1-4feb-b2d7-c3f2248a7337\"\r\n  },\r\n  \"mentor\": {\r\n    \"id\": \"7f111716-cca3-4512-b5e5-6d9647cf965c\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find the new exchange request ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Test Exchange Request",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/delete/c4460516-d15a-4b9e-ac86-acae93ccc8b7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "delete",
+                "c4460516-d15a-4b9e-ac86-acae93ccc8b7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part F - Advanced Queries",
+      "item": [
+        {
+          "name": "Exchange Request Statistics by Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel exchange requests for a mentor on a selected date",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/cancel-day?mentorId=e36aa397-cd8c-4066-9c4e-9c7d790f1ca6&date=2026-10-20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "mentorId",
+                  "value": "e36aa397-cd8c-4066-9c4e-9c7d790f1ca6"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bonus - Dashboard and Pagination",
+      "item": [
+        {
+          "name": "Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Exchange Requests Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/exchange-requests/page?page=0&size=5&sort=sessionDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "exchange-requests",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "sessionDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
