@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -66,6 +69,25 @@ public class ExchangeRequestController {
     @GetMapping("/stats/by-status")
     public ResponseEntity<List<Object[]>> getExchangeRequestStatsByStatus() {
         return ResponseEntity.ok(exchangeRequestService.getExchangeRequestStatsByStatus());
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<Page<ExchangeRequest>> getExchangeRequestsPage(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "sessionDate,desc") String sort) {
+
+        String[] sortParts = sort.split(",");
+
+        Sort.Direction direction = Sort.Direction.fromString(
+                sortParts.length > 1 ? sortParts[1] : "asc");
+
+        PageRequest pageable = PageRequest.of(
+                page,
+                size,
+                Sort.by(direction, sortParts[0]));
+
+        return ResponseEntity.ok(exchangeRequestService.getExchangeRequestsPage(pageable));
     }
 
     @PatchMapping("/cancel-day")

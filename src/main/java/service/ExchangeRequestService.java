@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.campusskillswap.domain.ExchangeRequest;
@@ -95,6 +97,10 @@ public class ExchangeRequestService {
                 date,
                 ExchangeStatus.REJECTED,
                 ExchangeStatus.DONE);
+    }
+
+    public Page<ExchangeRequest> getExchangeRequestsPage(Pageable pageable) {
+        return exchangeRequestRepository.findAll(pageable);
     }
 
     public String updateExchangeRequestStatus(UUID id, ExchangeStatus newStatus) {

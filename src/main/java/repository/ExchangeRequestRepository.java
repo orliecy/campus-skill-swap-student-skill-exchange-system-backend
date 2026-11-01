@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,4 +36,7 @@ public interface ExchangeRequestRepository extends JpaRepository<ExchangeRequest
             @Param("rejected") ExchangeStatus rejected,
             @Param("done") ExchangeStatus done);
 
+    long countBySessionDate(LocalDate sessionDate);
+
+    long countByStatus(ExchangeStatus status);
 }

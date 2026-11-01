@@ -17,4 +17,7 @@ public interface StudySpotRepository extends JpaRepository<StudySpot, UUID> {
 
     Optional<StudySpot> findBySpotNumber(int spotNumber);
 
+    @Query("SELECT COUNT(s) FROM StudySpot s WHERE NOT EXISTS (SELECT m FROM Mentor m WHERE m.studySpot = s)")
+    long countFreeStudySpots();
+
 }
