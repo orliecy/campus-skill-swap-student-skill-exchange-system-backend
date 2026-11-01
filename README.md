@@ -1,5 +1,10 @@
 # Campus SkillSwap Student Skill Exchange System
 
+**Student Name:** Mazimpaka Ikirezi Ora Lesly 
+**Student ID:** 27802  
+**Course:** INSY 8322 - Web Technology and Internet
+**Project:** Campus SkillSwap Student Skill Exchange System
+
 ## Project Overview
 
 Campus SkillSwap is a student skill exchange management system developed using Spring Boot and PostgreSQL.
